@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.mysql_svc_name }}
+  name: {{ include "mysql.getdbservicename" . }}
   labels:
     app: {{ include "mysql.fullname" . }}
 spec:
@@ -9,4 +9,4 @@ spec:
     - port: {{ .Values.service.port }}
   selector:
     app: {{ include "mysql.fullname" . }}
-  type: {{ .Values.service.type }}
+  type: {{ .Values.service.type }}    

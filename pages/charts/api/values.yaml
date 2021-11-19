@@ -1,10 +1,9 @@
-
 dbname: pages
 
 deployment:
   containerPort: 8080
   replicaCount: 1
-
+  
 secrets:
   SDP: cGFzc3dvcmQ=
 
@@ -19,6 +18,7 @@ image:
   repository: dellcloud/pages
   tag: monitor
 
+
 config:
   PAGE_CONTENT: Green-Pages coming from Yellow-World!
 
@@ -26,14 +26,14 @@ env:
   SPRING_DATASOURCE_URL: jdbc:mysql://pages-mysql/pages?useSSL=false
   SPRING_DATASOURCE_USERNAME: root
   DEBUG: true
-  LOGGING_FILE_NAME: blackwater/logs/app.log
+  LOGGING_FILE_NAME: argun/logs/app.log
   LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB: debug
   LOGGING_LEVEL_ROOT: debug
   MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "*"
 
 
 volumeMounts:
-  mount_path: /blackwater
+  mount_path: /argun
 
 readinessProbe:
   tcpSocket:
